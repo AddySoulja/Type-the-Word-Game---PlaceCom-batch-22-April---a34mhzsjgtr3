@@ -18,21 +18,19 @@ function App() {
     setResult("");
     if (userInput === word) {
       setResult("You won!");
-      return;
+    } else {
+      setResult("You lost!");
     }
-    setResult("You lost!");
   };
   const delayWord = () => {
+    setFlashWord(true);
     setIndex(genRandom());
     setWord(WORD_LIST[index]);
     setTimeout(() => setFlashWord(false), 500);
   };
   const handleRestartClick = () => {
-    setIndex(0);
-    setResult("");
-    setUserInput("");
-    setFlashWord(true);
     delayWord();
+    setResult("");
   };
   useEffect(() => {
     delayWord();
