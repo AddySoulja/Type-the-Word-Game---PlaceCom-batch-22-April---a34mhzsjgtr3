@@ -28,6 +28,7 @@ function App() {
     setTimeout(() => setFlashWord(false), 500);
   };
   const handleRestartClick = () => {
+    setIndex(0);
     setResult("");
     setUserInput("");
     setFlashWord(true);
