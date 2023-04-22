@@ -37,24 +37,28 @@ function App() {
     delayWord();
   }, []);
   return (
-    <div className="mini-game-container">
-      <h2 className="mini-game-title">Mini Game</h2>
+    <div class="mini-game-container">
+      <h2 class="mini-game-title">Mini Game</h2>
       {flashWord === true ? <p class="mini-game-word">{word}</p> : ""}
-      <form className="mini-game-form" onSubmit={handleFormSubmit}>
-        <input
-          className="mini-game-input"
-          type="text"
-          value={userInput}
-          onChange={(e) => setUserInput(e.target.value)}
-        />
-        <button className="mini-game-button" type="submit">
-          Check Answer
-        </button>
-      </form>
+      {result === "" ? (
+        <form class="mini-game-form" onSubmit={handleFormSubmit}>
+          <input
+            class="mini-game-input"
+            type="text"
+            value={userInput}
+            onChange={(e) => setUserInput(e.target.value)}
+          />
+          <button class="mini-game-button" type="submit">
+            Check Answer
+          </button>
+        </form>
+      ) : (
+        ""
+      )}
       {result && (
         <>
-          <p className="mini-game-result">{result}</p>
-          <button className="mini-game-restart-button" onClick={handleRestartClick}>
+          <p class="mini-game-result">{result}</p>
+          <button class="mini-game-restart-button" onClick={handleRestartClick}>
             Restart
           </button>
         </>
